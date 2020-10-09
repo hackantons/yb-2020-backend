@@ -42,7 +42,7 @@ func main() {
 		panic(err)
 	}
 
-	http.HandleFunc("/shares", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/data", func(w http.ResponseWriter, r *http.Request) {
 
 		enableCors(&w)
 		value, _ := json.Marshal(weekData)
