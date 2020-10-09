@@ -19,8 +19,8 @@ type WeekData struct {
 }
 
 type Share struct {
-	name   string
-	symbol string
+	Name   string `json:"name"`
+	Symbol string `json:"symbol"`
 }
 
 var (
@@ -71,12 +71,12 @@ func enableCors(w *http.ResponseWriter) {
 }
 
 func generateShares() {
-	shares = append(shares, Share{name: "Amazon", symbol: "AMZN"})
-	shares = append(shares, Share{name: "Facebook", symbol: "FB"})
-	shares = append(shares, Share{name: "JP Morgan", symbol: "JPM"})
-	shares = append(shares, Share{name: "Coca Cola", symbol: "KO"})
-	shares = append(shares, Share{name: "Mastercard", symbol: "MA"})
-	shares = append(shares, Share{name: "Mc Donalds", symbol: "MCD"})
-	shares = append(shares, Share{name: "Microsoft", symbol: "MSFT"})
-	shares = append(shares, Share{name: "Philip Morris", symbol: "PM"})
+	shares = append(shares, Share{Name: "Amazon", Symbol: "AMZN"})
+	shares = append(shares, Share{Name: "Facebook", Symbol: "FB"})
+	shares = append(shares, Share{Name: "JP Morgan", Symbol: "JPM"})
+	shares = append(shares, Share{Name: "Coca Cola", Symbol: "KO"})
+	shares = append(shares, Share{Name: "Mastercard", Symbol: "MA"})
+	shares = append(shares, Share{Name: "Mc Donalds", Symbol: "MCD"})
+	shares = append(shares, Share{Name: "Microsoft", Symbol: "MSFT"})
+	shares = append(shares, Share{Name: "Philip Morris", Symbol: "PM"})
 }
