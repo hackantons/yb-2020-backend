@@ -18,7 +18,18 @@ type WeekData struct {
 	Volume    float32 `csv:"volume"`
 }
 
+type Share struct {
+	name   string
+	symbol string
+}
+
+var (
+	shares []Share
+)
+
 func main() {
+	generateShares()
+
 	in, err := os.Open("msft.csv")
 	if err != nil {
 		panic(err)
@@ -31,12 +42,10 @@ func main() {
 		panic(err)
 	}
 
-	value, _ := json.Marshal(weekData)
-
 	http.HandleFunc("/shares", func(w http.ResponseWriter, r *http.Request) {
 
 		enableCors(&w)
-
+		value, _ := json.Marshal(weekData)
 		fmt.Fprint(w, string(value))
 
 	})
@@ -46,10 +55,28 @@ func main() {
 		w.WriteHeader(http.StatusOK)
 	})
 
+	http.HandleFunc("/shares", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
+
+		value, _ := json.Marshal(shares)
+		fmt.Fprint(w, string(value))
+	})
+
 	log.Fatal(http.ListenAndServe(":5080", nil))
 }
 
 // Just for testing purposes
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
+
+func generateShares() {
+	shares = append(shares, Share{name: "Amazon", symbol: "AMZN"})
+	shares = append(shares, Share{name: "Facebook", symbol: "FB"})
+	shares = append(shares, Share{name: "JP Morgan", symbol: "JPM"})
+	shares = append(shares, Share{name: "Coca Cola", symbol: "KO"})
+	shares = append(shares, Share{name: "Mastercard", symbol: "MA"})
+	shares = append(shares, Share{name: "Mc Donalds", symbol: "MCD"})
+	shares = append(shares, Share{name: "Microsoft", symbol: "MSFT"})
+	shares = append(shares, Share{name: "Philip Morris", symbol: "PM"})
 }
