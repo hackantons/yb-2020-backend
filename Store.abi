@@ -1,0 +1,1 @@
+[{"inputs":[],"name":"getScoreJson","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"newScoreJson","type":"string"}],"name":"setScoreJson","outputs":[],"stateMutability":"nonpayable","type":"function"}]

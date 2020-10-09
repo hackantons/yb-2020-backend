@@ -1,0 +1,23 @@
+{
+  "name": "yb-2020-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackantons/yb-2020-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hackantons/yb-2020-backend/issues"
+  },
+  "homepage": "https://github.com/hackantons/yb-2020-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "web3-eth-contract": "^1.3.0"
+  }
+}
