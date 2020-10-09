@@ -62,7 +62,7 @@
   "taskRoleArn": "arn:aws:iam::829534015160:role/RoleForYBHackathonBackendTask",
   "compatibilities": ["EC2", "FARGATE"],
   "taskDefinitionArn": "arn:aws:ecs:eu-central-1:829534015160:task-definition/ybhackathob-backend:1",
-  "family": "eurorelief-backend",
+  "family": "ybhackathon-backend",
   "requiresAttributes": [
     {
       "targetId": null,
