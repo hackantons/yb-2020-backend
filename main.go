@@ -1,4 +1,4 @@
-package hackathon
+package main
 
 import (
 	"log"
@@ -8,14 +8,18 @@ import (
 func main() {
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-
 		enableCors(&w)
 
+		w.Write([]byte("Hello World!"))
 	})
 
-	log.Fatal(http.ListenAndServe(":80", nil))
-}
+	http.HandleFunc("/health/ready", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
+		w.WriteHeader(http.StatusOK)
+	})
 
+	log.Fatal(http.ListenAndServe(":5080", nil))
+}
 
 // Just for testing purposes
 func enableCors(w *http.ResponseWriter) {
