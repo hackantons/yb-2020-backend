@@ -19,7 +19,6 @@ type WeekData struct {
 }
 
 func main() {
-
 	in, err := os.Open("msft.csv")
 	if err != nil {
 		panic(err)
@@ -40,6 +39,11 @@ func main() {
 
 		fmt.Fprint(w, string(value))
 
+	})
+
+	http.HandleFunc("/health/ready", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
+		w.WriteHeader(http.StatusOK)
 	})
 
 	log.Fatal(http.ListenAndServe(":5080", nil))
