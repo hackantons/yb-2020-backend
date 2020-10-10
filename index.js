@@ -17,6 +17,11 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded());
 
+app.get('/health/ready', function(req, res) {
+  res.status(200)
+  res.json({"status": 'I am healthy and ready. Eat you vegetables!'})
+})
+
 app.get('/leaderboard',async function(req,res)
 {
   const scoreJson = await getScoreJson();
