@@ -11,6 +11,8 @@ var contract = new Contract(abi, '0xFd93f18DE7763216830Cfe5fCD1A40304fDE4F09');
 var express=require('express');
 var app = express();
 
+app.use(cors())
+
 app.use(express.json());
 app.use(express.urlencoded());
 
