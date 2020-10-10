@@ -1,5 +1,6 @@
 
 var Contract = require('web3-eth-contract');
+var cors = require('cors')
 Contract.setProvider('http://18.192.192.22:8545');
 
 // Data set up
